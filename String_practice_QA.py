@@ -51,7 +51,7 @@ else:
     print("no space found!")
 
 
-#Q3 :Write a program to format the following letter using escape sequence characters.
+#Q3 :Write a program to format the following letter using escape sequence characters.  
 
 letter = "Dear Harry, this python course is nice. Thanks!"
 
