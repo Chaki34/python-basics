@@ -11,4 +11,4 @@ for word in texts:
 
 engine.runAndWait()
 
-# time.sleep(3)  # keep program alive a bit longer importnet for buffring purpouse to make the program alive 
+time.sleep(3)  # keep program alive a bit longer importnet for buffring purpouse to make the program alive 
