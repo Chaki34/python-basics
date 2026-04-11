@@ -1,5 +1,6 @@
 import os
 import psutil
+import platform
 
 # Get the current working directory
 
@@ -54,7 +55,7 @@ print("OS Name:", os.name)
 
 # if get full os info - then use platform module
 
-import platform
+
 
 print("===== SYSTEM INFO =====")
 print("System        :", platform.system())
