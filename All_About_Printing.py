@@ -8,7 +8,7 @@ print("My name is Debmalya Chaki")
 
 print("\n") # for next line 
 
-print("hello\t world/t")
+print("hello\t world")
 
 print("This is a single line comment")
 # gdgdgdfvg
