@@ -177,7 +177,4 @@
 
 
 
-* ✅ Clean **modern GitHub style**
-* ✅ Feels like a **premium roadmap repo**
-
 
