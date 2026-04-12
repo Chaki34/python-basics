@@ -1,6 +1,6 @@
 
 
-```html
+
 <!-- ================= HEADER ================= -->
 
 <h1 align="center">🐍 Python Mastery Roadmap</h1>
@@ -16,7 +16,7 @@
   <img src="https://img.shields.io/badge/Build-Projects-success?style=for-the-badge"/>
 </p>
 
----
+
 
 # 🎯 Agenda (What This Repo Is About)
 
@@ -28,17 +28,17 @@
 ⚡ Focus on **real projects + AI skills**  
 🧠 From **zero → advanced developer**
 
----
+
 
 # 🗺️ Learning Path (Visual)
 
-```
+
 
 🐍 Basics → 🧱 OOP → 📚 Libraries → 🤖 ML → 🧠 AI → 🧬 DL → 👁️ CV
 
-```
 
----
+
+
 
 # 🐍 Python Basics
 
@@ -49,7 +49,7 @@
 💡 Core foundation to start coding  
 ⚡ Logic + Syntax + Data Structures  
 
----
+
 
 # 🧱 OOP (Object-Oriented Programming)
 
@@ -60,7 +60,7 @@
 ⚙️ Build structured & scalable code  
 🏗️ Classes • Objects • Inheritance  
 
----
+
 
 # 📚 Libraries (Power Tools)
 
@@ -71,7 +71,7 @@
 📊 Data Handling + Visualization  
 ⚡ Real-world data processing  
 
----
+
 
 # 🤖 Machine Learning
 
@@ -82,7 +82,7 @@
 📈 Predict & Analyze Data  
 🧠 Models that learn patterns  
 
----
+
 
 # 🧠 Artificial Intelligence
 
@@ -93,7 +93,7 @@
 🤖 Smart Systems  
 💬 NLP • Decision Making  
 
----
+
 
 # 🧬 Deep Learning
 
@@ -104,7 +104,6 @@
 🔥 Neural Networks  
 ⚡ CNN • RNN • Transformers  
 
----
 
 # 👁️ Computer Vision
 
@@ -115,7 +114,7 @@
 📸 Work with Images & Videos  
 🎯 Detection • Recognition  
 
----
+
 
 # 🛠️ Tech Stack
 
@@ -123,7 +122,7 @@
   <img src="https://skillicons.dev/icons?i=python,vscode,pycharm,git,github,linux" />
 </p>
 
----
+
 
 # 💡 Projects (Build Like a Pro)
 
@@ -136,11 +135,11 @@
 🎥 Movie Recommender  
 📸 Face Detection  
 
----
+
 
 # 📂 Structure
 
-```
+
 
 📁 Python-Mastery
 ┣ 🐍 Basics
@@ -153,9 +152,9 @@
 ┣ 🚀 Projects
 ┗ 📦 Resources
 
-```
 
----
+
+
 
 # ⭐ Goal
 
@@ -163,26 +162,21 @@
 💻 Build real-world systems  
 🔥 Stand out in tech  
 
----
+
 
 # 👨‍💻 Author
 
 **Debmalya Chaki**
 
----
+
 
 <p align="center">
   ⚡ "Learn Fast. Build Faster. Dominate Tech."
 </p>
-```
 
----
 
-### 🔥 What I improved:
 
-* ✅ **Less text, more visual**
-* ✅ Clear **Agenda section**
-* ✅ Strong **icon-based sections**
+
 * ✅ Clean **modern GitHub style**
 * ✅ Feels like a **premium roadmap repo**
 
