@@ -1,0 +1,7 @@
+Hello, this is a test file.
+This file is used for demonstrating file handling in Python.
+hello my name is debmalya 
+i am a programmer 
+i love to design softwares 
+This line is added in append mode.
+This line is also added in append mode.

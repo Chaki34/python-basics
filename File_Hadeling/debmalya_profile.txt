@@ -1,0 +1,41 @@
+
+================= 👨‍💻 DEVELOPER PROFILE =================
+
+🧑 Name        : debmalya
+🎂 Age         : 21
+📧 Email       : deb@gmail.com
+📱 Phone       : 43243555
+
+---------------------------------------------------------
+
+📝 PROFILE SUMMARY
+I am debmalya, a motivated software developer with N/A of experience.
+My academic background in b.tech has helped me build a strong foundation in 
+programming and problem-solving. I specialize in python java  c  and love working on 
+innovative projects that make an impact. I am always eager to learn new technologies 
+and contribute to meaningful development work.
+
+---------------------------------------------------------
+
+🎓 EDUCATION
+b.tech
+
+💼 EXPERIENCE
+N/A
+
+---------------------------------------------------------
+
+🛠️ TECHNICAL SKILLS
+python java  c 
+
+---------------------------------------------------------
+
+🌐 GITHUB / PORTFOLIO
+chaki34
+
+---------------------------------------------------------
+
+📍 ADDRESS
+kolkata
+
+=========================================================

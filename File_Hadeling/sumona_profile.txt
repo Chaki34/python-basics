@@ -1,0 +1,43 @@
+
+================= 👨‍💻 DEVELOPER PROFILE =================
+
+🧑 Name        : sumona
+🎂 Age         : 20
+📧 Email       : sumona@gmail.com
+📱 Phone       : 31123123
+
+---------------------------------------------------------
+
+📝 PROFILE SUMMARY
+I am sumona, a motivated software developer with N/A of experience.
+My academic background in journalist  has helped me build a strong foundation in 
+programming and problem-solving. I specialize in Communtication  caring  and love working on 
+innovative projects that make an impact. I am always eager to learn new technologies 
+and contribute to meaningful development work.
+
+---------------------------------------------------------
+
+🎓 EDUCATION
+journalist 
+
+💼 EXPERIENCE
+N/A
+
+---------------------------------------------------------
+
+🛠️ TECHNICAL SKILLS
+Communtication  caring 
+
+---------------------------------------------------------
+
+🌐 GITHUB / PORTFOLIO
+N/A
+
+---------------------------------------------------------
+
+📍 ADDRESS
+kolkata
+
+=========================================================
+
+
