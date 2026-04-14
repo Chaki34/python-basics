@@ -67,6 +67,11 @@ print(f"element wise mul {a * b}")
 # → [1/4, 2/5, 3/6] = [0.25, 0.4, 0.5]
 print(f"element wise div {a / b}")
 
+a = np.array([1,2,3])
+b = np.array([1,2])
+
+#a + b   # ❌ Error 
+
 # Mathematical Functions
 
 print(np.sum(a))

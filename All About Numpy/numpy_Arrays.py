@@ -51,3 +51,9 @@ print(a.dtype)
 new_a= np.array([[[1,2],[3,4],[6,7]]], dtype=float)
 
 print(new_a.dtype)
+
+a = np.array([1,2,3,4])
+
+new_array = a[a > 2] # say starting from 2th index 
+
+print(new_array)
