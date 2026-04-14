@@ -62,5 +62,5 @@ for i in range(len(a)):
     result.append(a[i])
 
 
-# fast vectorized way ✅
+# fast vectorized way 
 np.hstack([a, b])
