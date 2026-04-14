@@ -84,7 +84,7 @@ print(a.ndim)
 a = a.reshape(2,2)
 print((a.ndim))
 
-print(a)
+print(a)  
 
 
 
