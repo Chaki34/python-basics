@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Number Analyzer</title>
+
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+
+        /* ==================================================
+           FULL SCREEN PAGE
+        ================================================== */
+
+        body {
+            margin: 0;
+
+            width: 100%;
+            min-height: 100vh;
+
+            background: #242424;
+            color: #eaff66;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            overflow-x: hidden;
+        }
+
+
+        /* ==================================================
+           MAIN FULL SCREEN CONTAINER
+        ================================================== */
+
+        .container {
+
+            width: 100%;
+            min-height: 100vh;
+
+            padding: 55px 7vw;
+
+            background: #000000;
+        }
+
+
+        /* ==================================================
+           HEADER
+        ================================================== */
+
+        .header {
+
+            display: flex;
+
+            justify-content: space-between;
+            align-items: center;
+
+            margin-bottom: 35px;
+        }
+
+
+        h1 {
+
+            margin: 0;
+
+            color: #eaff66;
+
+            font-size: clamp(42px, 6vw, 90px);
+
+            font-weight: bold;
+
+            letter-spacing: 4px;
+        }
+
+
+        .status {
+
+            padding: 14px 25px;
+
+            border-radius: 30px;
+
+            background: #5f6d2c;
+
+            color: #eaff66;
+
+            font-size: 18px;
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* ==================================================
+           SUBTITLE
+        ================================================== */
+
+        .subtitle {
+
+            margin-bottom: 55px;
+
+            color: #777b3c;
+
+            font-size: clamp(16px, 2vw, 26px);
+
+            letter-spacing: 2px;
+        }
+
+
+        /* ==================================================
+           INPUT LABEL
+        ================================================== */
+
+        .input-label {
+
+            display: block;
+
+            margin-bottom: 15px;
+
+            color: #777b3c;
+
+            font-size: clamp(16px, 2vw, 25px);
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        /* ==================================================
+           INPUT ROW
+        ================================================== */
+
+        .input-row {
+
+            width: 100%;
+
+            display: flex;
+
+            gap: 20px;
+        }
+
+
+        /* ==================================================
+           NUMBER INPUT
+        ================================================== */
+
+        input {
+
+            flex: 1;
+
+            width: 100%;
+
+            min-width: 0;
+
+            padding: 25px 30px;
+
+            border: 2px solid #282828;
+
+            border-radius: 12px;
+
+            background: #151515;
+
+            color: #eaff66;
+
+            outline: none;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: clamp(28px, 4vw, 55px);
+
+            font-weight: bold;
+        }
+
+
+        input::placeholder {
+
+            color: #4f5230;
+        }
+
+
+        input:focus {
+
+            border-color: #68752f;
+
+            box-shadow:
+                0 0 20px rgba(234, 255, 102, 0.08);
+        }
+
+
+        /* ==================================================
+           ANALYZE BUTTON
+        ================================================== */
+
+        button {
+
+            min-width: 220px;
+
+            padding: 0 35px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #65732e;
+
+            color: #f0ff70;
+
+            font-family:
+                "Courier New",
+                monospace;
+
+            font-size: clamp(20px, 2.5vw, 32px);
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+
+            cursor: pointer;
+
+            transition: 0.2s;
+        }
+
+
+        button:hover {
+
+            background: #78883a;
+
+            transform: translateY(-2px);
+        }
+
+
+        button:active {
+
+            transform: translateY(0);
+        }
+
+
+        /* ==================================================
+           ERROR
+        ================================================== */
+
+        .error {
+
+            margin-top: 18px;
+
+            color: #eaff66;
+
+            font-size: 18px;
+
+            font-weight: bold;
+        }
+
+
+        /* ==================================================
+           RESULT SECTION
+        ================================================== */
+
+        .result {
+
+            margin-top: 65px;
+
+            padding-top: 40px;
+
+            border-top: 2px solid #202020;
+        }
+
+
+        /* ==================================================
+           NUMBER DISPLAY
+        ================================================== */
+
+        .number-display {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: end;
+
+            margin-bottom: 40px;
+        }
+
+
+        .number-title {
+
+            color: #777b3c;
+
+            font-size: clamp(18px, 2vw, 28px);
+
+            letter-spacing: 2px;
+
+            text-transform: uppercase;
+        }
+
+
+        .result-number {
+
+            color: #eaff66;
+
+            font-size: clamp(70px, 11vw, 180px);
+
+            line-height: 0.9;
+
+            font-weight: bold;
+
+            letter-spacing: 5px;
+        }
+
+
+        /* ==================================================
+           ANALYSIS GRID
+        ================================================== */
+
+        .analysis {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(2, 1fr);
+
+            gap: 18px;
+        }
+
+
+        /* ==================================================
+           RESULT CARDS
+        ================================================== */
+
+        .item {
+
+            min-height: 130px;
+
+            padding: 25px 30px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            border-radius: 12px;
+
+            background: #151515;
+
+            border: 2px solid #202020;
+
+            color: #777b3c;
+
+            font-size: clamp(20px, 2.5vw, 34px);
+
+            font-weight: bold;
+
+            text-transform: uppercase;
+
+            transition: 0.2s;
+        }
+
+
+        .item:hover {
+
+            border-color: #42482a;
+
+            background: #191919;
+
+            transform: translateY(-2px);
+        }
+
+
+        .value {
+
+            color: #eaff66;
+
+            font-size: clamp(20px, 2.5vw, 34px);
+
+            font-weight: bold;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* ==================================================
+           FOOTER
+        ================================================== */
+
+        .footer {
+
+            margin-top: 40px;
+
+            display: flex;
+
+            justify-content: space-between;
+
+            color: #44462b;
+
+            font-size: 16px;
+
+            letter-spacing: 2px;
+        }
+
+
+        /* ==================================================
+           LARGE SCREEN
+        ================================================== */
+
+        @media (min-width: 1400px) {
+
+            .container {
+
+                padding: 70px 8vw;
+            }
+
+            .analysis {
+
+                gap: 25px;
+            }
+
+            .item {
+
+                min-height: 160px;
+
+                padding: 35px 40px;
+            }
+
+        }
+
+
+        /* ==================================================
+           MOBILE
+        ================================================== */
+
+        @media (max-width: 700px) {
+
+            .container {
+
+                padding: 30px 20px;
+            }
+
+
+            .header {
+
+                align-items: flex-start;
+
+                gap: 20px;
+            }
+
+
+            h1 {
+
+                font-size: 34px;
+
+                letter-spacing: 2px;
+            }
+
+
+            .status {
+
+                padding: 9px 14px;
+
+                font-size: 12px;
+            }
+
+
+            .subtitle {
+
+                margin-bottom: 35px;
+
+                font-size: 13px;
+            }
+
+
+            .input-row {
+
+                flex-direction: column;
+            }
+
+
+            input {
+
+                padding: 18px;
+
+                font-size: 30px;
+            }
+
+
+            button {
+
+                min-height: 65px;
+
+                width: 100%;
+            }
+
+
+            .number-display {
+
+                display: block;
+            }
+
+
+            .result-number {
+
+                margin-top: 15px;
+
+                font-size: 70px;
+            }
+
+
+            .analysis {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .item {
+
+                min-height: 85px;
+
+                padding: 20px;
+
+                font-size: 18px;
+            }
+
+
+            .value {
+
+                font-size: 18px;
+            }
+
+
+            .footer {
+
+                font-size: 10px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<div class="container">
+
+
+    <!-- ==================================================
+         HEADER
+    ================================================== -->
+
+    <div class="header">
+
+        <h1>
+            NUMBER ANALYZER
+        </h1>
+
+
+        <div class="status">
+            READY
+        </div>
+
+    </div>
+
+
+    <div class="subtitle">
+
+        MULTI-PROPERTY NUMERICAL ANALYSIS SYSTEM
+
+    </div>
+
+
+    <!-- ==================================================
+         INPUT
+    ================================================== -->
+
+    <label
+        class="input-label"
+        for="number">
+
+        INPUT NUMBER
+
+    </label>
+
+
+    <div class="input-row">
+
+        <input
+            type="number"
+            id="number"
+            placeholder="153"
+        >
+
+
+        <button onclick="analyzeNumber()">
+
+            ANALYZE
+
+        </button>
+
+    </div>
+
+
+    <!-- ==================================================
+         ERROR
+    ================================================== -->
+
+    <div
+        id="error"
+        class="error">
+    </div>
+
+
+    <!-- ==================================================
+         RESULT
+    ================================================== -->
+
+    <div
+        id="result"
+        class="result"
+        style="display: none;">
+
+
+        <!-- NUMBER -->
+
+        <div class="number-display">
+
+            <div class="number-title">
+
+                ANALYZED VALUE
+
+            </div>
+
+
+            <div
+                id="resultNumber"
+                class="result-number">
+
+            </div>
+
+        </div>
+
+
+        <!-- ==================================================
+             ANALYSIS RESULTS
+        ================================================== -->
+
+        <div class="analysis">
+
+
+            <div class="item">
+
+                <span>
+                    EVEN
+                </span>
+
+                <span
+                    id="even"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    ODD
+                </span>
+
+                <span
+                    id="odd"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    POSITIVE
+                </span>
+
+                <span
+                    id="positive"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    NEGATIVE
+                </span>
+
+                <span
+                    id="negative"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    PRIME
+                </span>
+
+                <span
+                    id="prime"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    PALINDROME
+                </span>
+
+                <span
+                    id="palindrome"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    ARMSTRONG
+                </span>
+
+                <span
+                    id="armstrong"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+            <div class="item">
+
+                <span>
+                    ZERO
+                </span>
+
+                <span
+                    id="zero"
+                    class="value">
+
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- FOOTER -->
+
+        <div class="footer">
+
+            <span>
+                NUMBER ANALYSIS
+            </span>
+
+            <span>
+                FLASK API
+            </span>
+
+        </div>
+
+
+    </div>
+
+
+</div>
+
+
+<script>
+
+
+// ==========================================================
+// FRONTEND → FLASK BACKEND
+// ==========================================================
+//
+// NO BACKEND CHANGES ARE REQUIRED.
+//
+// This sends the number to:
+//
+// POST /api/analyze
+//
+// ==========================================================
+
+async function analyzeNumber() {
+
+
+    const number =
+        document.getElementById("number").value;
+
+
+    const error =
+        document.getElementById("error");
+
+
+    const result =
+        document.getElementById("result");
+
+
+    // Check input
+
+    if (number === "") {
+
+        error.innerText =
+            "ENTER A NUMBER FIRST.";
+
+        result.style.display =
+            "none";
+
+        return;
+    }
+
+
+    try {
+
+
+        // ==================================================
+        // FLASK API CALL
+        // ==================================================
+
+        const response = await fetch(
+
+            "/api/analyze",
+
+            {
+
+                method: "POST",
+
+                headers: {
+
+                    "Content-Type":
+                        "application/json"
+
+                },
+
+                body: JSON.stringify({
+
+                    number: number
+
+                })
+
+            }
+
+        );
+
+
+        // Get JSON response
+
+        const data =
+            await response.json();
+
+
+        // ==================================================
+        // DISPLAY RESULT
+        // ==================================================
+
+        document.getElementById(
+            "resultNumber"
+        ).innerText =
+            data.number;
+
+
+        setValue(
+            "even",
+            data.even
+        );
+
+
+        setValue(
+            "odd",
+            data.odd
+        );
+
+
+        setValue(
+            "positive",
+            data.positive
+        );
+
+
+        setValue(
+            "negative",
+            data.negative
+        );
+
+
+        setValue(
+            "prime",
+            data.prime
+        );
+
+
+        setValue(
+            "palindrome",
+            data.palindrome
+        );
+
+
+        setValue(
+            "armstrong",
+            data.armstrong
+        );
+
+
+        setValue(
+            "zero",
+            data.zero
+        );
+
+
+        result.style.display =
+            "block";
+
+
+        error.innerText = "";
+
+
+    }
+
+
+    catch (err) {
+
+        error.innerText =
+            "UNABLE TO CONNECT TO FLASK API.";
+
+    }
+
+}
+
+
+// ==========================================================
+// DISPLAY YES / NO
+// ==========================================================
+
+function setValue(id, value) {
+
+    document.getElementById(id)
+        .innerText =
+        value ? "YES" : "NO";
+
+}
+
+
+</script>
+
+
+</body>
+
+</html>
